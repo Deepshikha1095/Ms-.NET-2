@@ -1,0 +1,34 @@
+﻿@model IEnumerable<DalLibrary.EmployeeClass>
+@{
+    ViewBag.Title = "Home Page";
+}
+<h2>EMPLOYEE DETAILS</h2>
+<style>
+    body{
+        background-color:pink;
+    }
+</style>
+
+<table border="4" style="background-color:orange">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Dept</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Dept</td>
+                <td>@Html.ActionLink("Update", "UpdateEmployee", new { id = item.Id })</td>
+                <td>   @Html.ActionLink("Delete", "DeleteEmployee", new { id = item.Id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
